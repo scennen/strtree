@@ -1,0 +1,20 @@
+root: my_project
+git_init: true
+
+structure:
+  - type: dir
+    path: src
+    comment: Application source code
+
+  - type: file
+    path: src/__init__.py
+    content: ""
+
+  - type: file
+    path: src/main.py
+    comment: Main entrypoint
+
+  - type: file
+    path: requirements.txt
+    content: |
+      python-dotenv>=1.0.0

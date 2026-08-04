@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "project-generator"
+version = "0.1.0"
+description = "Local CLI project generator that creates folders and files from a structure spec"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [
+    { name = "Your Name" }
+]
+
+dependencies = []
+
+[project.optional-dependencies]
+yaml = [
+    "pyyaml>=6"
+]
+
+dev = [
+    "pytest>=8",
+    "ruff>=0.4",
+    "build>=1",
+    "twine>=5"
+]
+
+[project.scripts]
+project-generator = "project_generator.cli:main"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = [
+    "tests"
+]
+pythonpath = [
+    "src"
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
