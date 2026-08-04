@@ -1,8 +1,6 @@
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Optional
-
 
 PYTHON_GITIGNORE = """__pycache__/
 *.py[cod]
@@ -26,7 +24,7 @@ build/
 """
 
 
-def default_content(rel_path: Path, comment: Optional[str], root_name: str) -> str:
+def default_content(rel_path: Path, comment: str | None, root_name: str) -> str:
     """
     Generate useful default content for known files.
     """

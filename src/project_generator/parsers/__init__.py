@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
-from typing import Optional
 
 from project_generator.models import ProjectSpec
 from project_generator.parsers.dict_parser import parse_dict_spec
@@ -16,8 +15,8 @@ except ImportError:
 
 def load_spec(
     path: Path,
-    root_override: Optional[Path] = None,
-    git_init: Optional[bool] = None,
+    root_override: Path | None = None,
+    git_init: bool | None = None,
 ) -> ProjectSpec:
     """
     Load project specification from a file.

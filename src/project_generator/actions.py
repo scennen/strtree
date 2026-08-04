@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Dict, List
 
 from project_generator.models import Action, FileSpec, ProjectSpec
 from project_generator.security import safe_join
@@ -64,7 +63,7 @@ def plan_actions(
     spec: ProjectSpec,
     force: bool = False,
     empty_files: bool = False,
-) -> List[Action]:
+) -> list[Action]:
     """
     Build execution plan.
     """
@@ -74,7 +73,7 @@ def plan_actions(
         raise ValueError(f"Target path already exists and is not a directory: {root}")
 
     root_name = root.name or "project"
-    actions: List[Action] = []
+    actions: list[Action] = []
 
     if root.exists():
         actions.append(Action(kind="EXISTS DIR", target=root))
@@ -82,7 +81,7 @@ def plan_actions(
         actions.append(Action(kind="CREATE DIR", target=root))
 
     # Collect explicit and implicit directories.
-    dir_comments: Dict[Path, str | None] = {}
+    dir_comments: dict[Path, str | None] = {}
     all_dirs = set()
 
     for d in spec.dirs:
@@ -102,7 +101,7 @@ def plan_actions(
         actions.append(Action(kind=kind, target=target, comment=dir_comments.get(rel)))
 
     # Deduplicate files by path.
-    files_by_path: Dict[Path, FileSpec] = {}
+    files_by_path: dict[Path, FileSpec] = {}
     for f in spec.files:
         files_by_path[Path(f.path)] = f
 

@@ -2,37 +2,37 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 
 @dataclass
 class DirSpec:
     path: Path
-    comment: Optional[str] = None
+    comment: str | None = None
 
 
 @dataclass
 class FileSpec:
     path: Path
-    content: Optional[str] = None
-    comment: Optional[str] = None
+    content: str | None = None
+    comment: str | None = None
     executable: bool = False
 
 
 @dataclass
 class ProjectSpec:
     root: Path
-    dirs: List[DirSpec] = field(default_factory=list)
-    files: List[FileSpec] = field(default_factory=list)
+    dirs: list[DirSpec] = field(default_factory=list)
+    files: list[FileSpec] = field(default_factory=list)
     git_init: bool = False
-    variables: Dict[str, Any] = field(default_factory=dict)
+    variables: dict[str, Any] = field(default_factory=dict)
 
 
 @dataclass
 class Action:
     kind: str
     target: Path
-    comment: Optional[str] = None
-    content: Optional[str] = None
+    comment: str | None = None
+    content: str | None = None
     executable: bool = False
-    command: Optional[List[str]] = None
+    command: list[str] | None = None

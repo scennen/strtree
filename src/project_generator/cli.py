@@ -3,7 +3,6 @@ from __future__ import annotations
 import argparse
 import sys
 from pathlib import Path
-from typing import List, Optional
 
 from project_generator import __version__
 from project_generator.actions import add_default_files, add_python_init_files, plan_actions
@@ -11,7 +10,7 @@ from project_generator.executor import execute_actions
 from project_generator.parsers import load_spec
 
 
-def main(argv: Optional[List[str]] = None) -> None:
+def main(argv: list[str] | None = None) -> None:
     parser = argparse.ArgumentParser(
         prog="project-generator",
         description="Local CLI project generator",

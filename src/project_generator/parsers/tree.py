@@ -2,15 +2,14 @@ from __future__ import annotations
 
 import re
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any
 
 from project_generator.models import DirSpec, FileSpec, ProjectSpec
-
 
 TREE_PREFIX_RE = re.compile(r"^[\s│├└─]+")
 
 
-def split_comment(line: str) -> Tuple[str, Optional[str]]:
+def split_comment(line: str) -> tuple[str, str | None]:
     """
     Split tree line into path part and comment part.
 
@@ -47,8 +46,8 @@ def parse_tree_text(text: str) -> ProjectSpec:
         │   ├── __init__.py
         │   └── start.py           # /start
     """
-    items: List[Dict[str, Any]] = []
-    stack: List[Tuple[int, int]] = []
+    items: list[dict[str, Any]] = []
+    stack: list[tuple[int, int]] = []
 
     for raw_line in text.splitlines():
         if not raw_line.strip():
@@ -118,14 +117,13 @@ def parse_tree_text(text: str) -> ProjectSpec:
         entries = items
         offset = min(item["depth"] for item in items) if items else 0
 
-    dirs: List[DirSpec] = []
-    files: List[FileSpec] = []
-    dir_at_depth: Dict[int, Path] = {}
+    dirs: list[DirSpec] = []
+    files: list[FileSpec] = []
+    dir_at_depth: dict[int, Path] = {}
 
     for item in entries:
         depth = item["depth"] - offset
-        if depth < 0:
-            depth = 0
+        depth = max(depth, 0)
 
         name = item["name"].rstrip("/")
         if not name:

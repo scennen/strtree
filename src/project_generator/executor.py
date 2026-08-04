@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import subprocess
 import sys
-from typing import List
 
 from project_generator.models import Action
 
@@ -23,7 +22,7 @@ def print_action(action: Action, dry_run: bool) -> None:
     print(line)
 
 
-def execute_actions(actions: List[Action], dry_run: bool = False) -> None:
+def execute_actions(actions: list[Action], dry_run: bool = False) -> None:
     for action in actions:
         print_action(action, dry_run)
 
@@ -58,6 +57,6 @@ def execute_actions(actions: List[Action], dry_run: bool = False) -> None:
             print(f"ERROR: command failed: {exc}", file=sys.stderr)
             sys.exit(1)
 
-        except Exception as exc:
+        except OSError as exc:
             print(f"ERROR: {action.target}: {exc}", file=sys.stderr)
             sys.exit(1)

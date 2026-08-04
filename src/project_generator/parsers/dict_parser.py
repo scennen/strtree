@@ -1,16 +1,16 @@
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Any, Dict, List, Tuple
+from typing import Any
 
 from project_generator.models import DirSpec, FileSpec, ProjectSpec
 from project_generator.parsers.tree import parse_tree_text
 
 
 def parse_structure_nodes(
-    nodes: List[Any],
+    nodes: list[Any],
     base: Path = Path(),
-) -> Tuple[List[DirSpec], List[FileSpec]]:
+) -> tuple[list[DirSpec], list[FileSpec]]:
     """
     Parse JSON/YAML structure nodes.
 
@@ -24,8 +24,8 @@ def parse_structure_nodes(
           "children": [...]
         }
     """
-    dirs: List[DirSpec] = []
-    files: List[FileSpec] = []
+    dirs: list[DirSpec] = []
+    files: list[FileSpec] = []
 
     for node in nodes:
         if isinstance(node, str):
@@ -76,7 +76,7 @@ def parse_structure_nodes(
     return dirs, files
 
 
-def parse_dict_spec(data: Dict[str, Any]) -> ProjectSpec:
+def parse_dict_spec(data: dict[str, Any]) -> ProjectSpec:
     """
     Parse JSON/YAML dictionary spec.
     """
