@@ -1,15 +1,15 @@
-from pathlib import Path
+﻿from pathlib import Path
 
-from project_generator.parsers.tree import parse_tree_text
+from strtree.parsers.tree import parse_tree_text
 
 
 def test_parse_basic_tree():
     text = """demo/
-│
-├── src/
-│   ├── __init__.py
-│   └── main.py
-└── README.md
+в”‚
+в”њв”Ђв”Ђ src/
+в”‚   в”њв”Ђв”Ђ __init__.py
+в”‚   в””в”Ђв”Ђ main.py
+в””в”Ђв”Ђ README.md
 """
 
     spec = parse_tree_text(text)
@@ -27,7 +27,7 @@ def test_parse_basic_tree():
 
 def test_parse_comments():
     text = """demo/
-├── main.py  # Main entrypoint
+в”њв”Ђв”Ђ main.py  # Main entrypoint
 """
 
     spec = parse_tree_text(text)

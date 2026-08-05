@@ -3,14 +3,14 @@ requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "project-generator"
+name = "strtree"
 version = "0.1.0"
-description = "Local CLI project generator that creates folders and files from a structure spec"
+description = "CLI tool that generates project structures from tree, JSON, or YAML specs"
 readme = "README.md"
-requires-python = ">=3.9"
-license = { text = "MIT" }
+requires-python = ">=3.10"
+license = {text = "MIT"}
 authors = [
-    { name = "Your Name" }
+    {name = "Your Name"}
 ]
 
 dependencies = []
@@ -28,22 +28,16 @@ dev = [
 ]
 
 [project.scripts]
-project-generator = "project_generator.cli:main"
+strtree = "strtree.cli:main"
 
 [tool.setuptools]
-package-dir = { "" = "src" }
-
-[tool.setuptools.packages.find]
-where = ["src"]
+package-dir = {"" = "src"}
+packages = ["strtree", "strtree.parsers"]
 
 [tool.pytest.ini_options]
-testpaths = [
-    "tests"
-]
-pythonpath = [
-    "src"
-]
+testpaths = ["tests"]
+pythonpath = ["src"]
 
 [tool.ruff]
 line-length = 100
-target-version = "py39"
+target-version = "py310"

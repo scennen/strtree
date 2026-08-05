@@ -1,7 +1,7 @@
-from pathlib import Path
+﻿from pathlib import Path
 
-from project_generator.actions import plan_actions
-from project_generator.models import DirSpec, FileSpec, ProjectSpec
+from strtree.actions import plan_actions
+from strtree.models import DirSpec, FileSpec, ProjectSpec
 
 
 def test_plan_actions(tmp_path):

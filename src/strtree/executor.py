@@ -1,9 +1,9 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 import subprocess
 import sys
 
-from project_generator.models import Action
+from strtree.models import Action
 
 
 def print_action(action: Action, dry_run: bool) -> None:

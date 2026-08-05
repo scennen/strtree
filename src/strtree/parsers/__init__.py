@@ -1,11 +1,11 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 import json
 from pathlib import Path
 
-from project_generator.models import ProjectSpec
-from project_generator.parsers.dict_parser import parse_dict_spec
-from project_generator.parsers.tree import parse_tree_text
+from strtree.models import ProjectSpec
+from strtree.parsers.dict_parser import parse_dict_spec
+from strtree.parsers.tree import parse_tree_text
 
 try:
     import yaml

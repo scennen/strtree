@@ -1,10 +1,10 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 from pathlib import Path
 from typing import Any
 
-from project_generator.models import DirSpec, FileSpec, ProjectSpec
-from project_generator.parsers.tree import parse_tree_text
+from strtree.models import DirSpec, FileSpec, ProjectSpec
+from strtree.parsers.tree import parse_tree_text
 
 
 def parse_structure_nodes(

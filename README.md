@@ -1,47 +1,47 @@
-# Project Generator
+﻿# Project Generator
 
-![CI](https://github.com/OWNER/project-generator/actions/workflows/ci.yml/badge.svg)
-![CD](https://github.com/OWNER/project-generator/actions/workflows/cd.yml/badge.svg)
+![CI](https://github.com/OWNER/strtree/actions/workflows/ci.yml/badge.svg)
+![CD](https://github.com/OWNER/strtree/actions/workflows/cd.yml/badge.svg)
 
-`project-generator` — локальный CLI-инструмент для генерации структуры проекта по описанию.
+`strtree` вЂ” Р»РѕРєР°Р»СЊРЅС‹Р№ CLI-РёРЅСЃС‚СЂСѓРјРµРЅС‚ РґР»СЏ РіРµРЅРµСЂР°С†РёРё СЃС‚СЂСѓРєС‚СѓСЂС‹ РїСЂРѕРµРєС‚Р° РїРѕ РѕРїРёСЃР°РЅРёСЋ.
 
-Поддерживает ASCII-tree, JSON и YAML. Создаёт папки, файлы, `__init__.py`, `.env`, `README.md`, `.gitignore`, `requirements.txt` и другие базовые файлы.
-
----
-
-## Возможности
-
-- генерация проекта из tree / JSON / YAML;
-- создание папок и файлов;
-- поддержка комментариев в структуре;
-- `--dry-run` режим;
-- автоматическое создание `__init__.py`;
-- добавление `README.md` и `.gitignore`;
-- опциональный `git init`;
-- защита от небезопасных путей;
-- тесты и CI/CD через GitHub Actions.
+РџРѕРґРґРµСЂР¶РёРІР°РµС‚ ASCII-tree, JSON Рё YAML. РЎРѕР·РґР°С‘С‚ РїР°РїРєРё, С„Р°Р№Р»С‹, `__init__.py`, `.env`, `README.md`, `.gitignore`, `requirements.txt` Рё РґСЂСѓРіРёРµ Р±Р°Р·РѕРІС‹Рµ С„Р°Р№Р»С‹.
 
 ---
 
-## Требования
+## Р’РѕР·РјРѕР¶РЅРѕСЃС‚Рё
+
+- РіРµРЅРµСЂР°С†РёСЏ РїСЂРѕРµРєС‚Р° РёР· tree / JSON / YAML;
+- СЃРѕР·РґР°РЅРёРµ РїР°РїРѕРє Рё С„Р°Р№Р»РѕРІ;
+- РїРѕРґРґРµСЂР¶РєР° РєРѕРјРјРµРЅС‚Р°СЂРёРµРІ РІ СЃС‚СЂСѓРєС‚СѓСЂРµ;
+- `--dry-run` СЂРµР¶РёРј;
+- Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРѕРµ СЃРѕР·РґР°РЅРёРµ `__init__.py`;
+- РґРѕР±Р°РІР»РµРЅРёРµ `README.md` Рё `.gitignore`;
+- РѕРїС†РёРѕРЅР°Р»СЊРЅС‹Р№ `git init`;
+- Р·Р°С‰РёС‚Р° РѕС‚ РЅРµР±РµР·РѕРїР°СЃРЅС‹С… РїСѓС‚РµР№;
+- С‚РµСЃС‚С‹ Рё CI/CD С‡РµСЂРµР· GitHub Actions.
+
+---
+
+## РўСЂРµР±РѕРІР°РЅРёСЏ
 
 - Python 3.9+
-- git, если нужен `git init`
-- опционально `pyyaml` для YAML
+- git, РµСЃР»Рё РЅСѓР¶РµРЅ `git init`
+- РѕРїС†РёРѕРЅР°Р»СЊРЅРѕ `pyyaml` РґР»СЏ YAML
 
 ---
 
-## Установка
+## РЈСЃС‚Р°РЅРѕРІРєР°
 
 ```bash
-git clone https://github.com/OWNER/project-generator.git
-cd project-generator
+git clone https://github.com/OWNER/strtree.git
+cd strtree
 python -m venv .venv
 source .venv/bin/activate  # Windows: .venv\Scripts\activate
 pip install -e .
 ```
 
-Для разработки:
+Р”Р»СЏ СЂР°Р·СЂР°Р±РѕС‚РєРё:
 
 ```bash
 pip install -e ".[dev,yaml]"
@@ -49,30 +49,30 @@ pip install -e ".[dev,yaml]"
 
 ---
 
-## Использование
+## РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ
 
-Проверить, что будет создано:
+РџСЂРѕРІРµСЂРёС‚СЊ, С‡С‚Рѕ Р±СѓРґРµС‚ СЃРѕР·РґР°РЅРѕ:
 
 ```bash
-project-generator generate examples/telegram_bot.tree --dry-run
+strtree generate examples/telegram_bot.tree --dry-run
 ```
 
-Создать проект:
+РЎРѕР·РґР°С‚СЊ РїСЂРѕРµРєС‚:
 
 ```bash
-project-generator generate examples/telegram_bot.tree
+strtree generate examples/telegram_bot.tree
 ```
 
-Создать проект с `README.md`, `.gitignore` и `git init`:
+РЎРѕР·РґР°С‚СЊ РїСЂРѕРµРєС‚ СЃ `README.md`, `.gitignore` Рё `git init`:
 
 ```bash
-project-generator generate examples/telegram_bot.tree --git-init --add-defaults
+strtree generate examples/telegram_bot.tree --git-init --add-defaults
 ```
 
-Полный вариант:
+РџРѕР»РЅС‹Р№ РІР°СЂРёР°РЅС‚:
 
 ```bash
-project-generator generate examples/telegram_bot.tree \
+strtree generate examples/telegram_bot.tree \
   --git-init \
   --add-defaults \
   --auto-init
@@ -80,54 +80,54 @@ project-generator generate examples/telegram_bot.tree \
 
 ---
 
-## Основные флаги
+## РћСЃРЅРѕРІРЅС‹Рµ С„Р»Р°РіРё
 
-| Флаг              | Описание                                   |
+| Р¤Р»Р°Рі              | РћРїРёСЃР°РЅРёРµ                                   |
 | ----------------- | ------------------------------------------ |
-| `--dry-run`       | показать действия без создания файлов      |
-| `--force`         | перезаписывать существующие файлы          |
-| `--root PATH`     | переопределить корень проекта              |
-| `--git-init`      | выполнить `git init`                       |
-| `--no-git-init`   | не выполнять `git init`                    |
-| `--add-defaults`  | добавить `README.md` и `.gitignore`        |
-| `--add-readme`    | добавить `README.md`                       |
-| `--add-gitignore` | добавить `.gitignore`                      |
-| `--auto-init`     | создать `__init__.py` в папках             |
-| `--empty-files`   | создавать файлы без дефолтного содержимого |
+| `--dry-run`       | РїРѕРєР°Р·Р°С‚СЊ РґРµР№СЃС‚РІРёСЏ Р±РµР· СЃРѕР·РґР°РЅРёСЏ С„Р°Р№Р»РѕРІ      |
+| `--force`         | РїРµСЂРµР·Р°РїРёСЃС‹РІР°С‚СЊ СЃСѓС‰РµСЃС‚РІСѓСЋС‰РёРµ С„Р°Р№Р»С‹          |
+| `--root PATH`     | РїРµСЂРµРѕРїСЂРµРґРµР»РёС‚СЊ РєРѕСЂРµРЅСЊ РїСЂРѕРµРєС‚Р°              |
+| `--git-init`      | РІС‹РїРѕР»РЅРёС‚СЊ `git init`                       |
+| `--no-git-init`   | РЅРµ РІС‹РїРѕР»РЅСЏС‚СЊ `git init`                    |
+| `--add-defaults`  | РґРѕР±Р°РІРёС‚СЊ `README.md` Рё `.gitignore`        |
+| `--add-readme`    | РґРѕР±Р°РІРёС‚СЊ `README.md`                       |
+| `--add-gitignore` | РґРѕР±Р°РІРёС‚СЊ `.gitignore`                      |
+| `--auto-init`     | СЃРѕР·РґР°С‚СЊ `__init__.py` РІ РїР°РїРєР°С…             |
+| `--empty-files`   | СЃРѕР·РґР°РІР°С‚СЊ С„Р°Р№Р»С‹ Р±РµР· РґРµС„РѕР»С‚РЅРѕРіРѕ СЃРѕРґРµСЂР¶РёРјРѕРіРѕ |
 
 ---
 
-## Пример tree-структуры
+## РџСЂРёРјРµСЂ tree-СЃС‚СЂСѓРєС‚СѓСЂС‹
 
 ```text
 my_bot_project/
-│
-├── handlers/              # Обработчики сообщений и команд
-│   ├── __init__.py
-│   ├── start.py           # Команды /start, /help
-│   └── admin.py           # Панель управления администратора
-│
-├── keyboards/             # Кнопки и меню
-│   ├── __init__.py
-│   ├── reply.py
-│   └── inline.py
-│
-├── database/
-│   ├── __init__.py
-│   ├── connection.py
-│   └── requests.py
-│
-├── .env
-├── config.py
-├── main.py
-└── requirements.txt
+в”‚
+в”њв”Ђв”Ђ handlers/              # РћР±СЂР°Р±РѕС‚С‡РёРєРё СЃРѕРѕР±С‰РµРЅРёР№ Рё РєРѕРјР°РЅРґ
+в”‚   в”њв”Ђв”Ђ __init__.py
+в”‚   в”њв”Ђв”Ђ start.py           # РљРѕРјР°РЅРґС‹ /start, /help
+в”‚   в””в”Ђв”Ђ admin.py           # РџР°РЅРµР»СЊ СѓРїСЂР°РІР»РµРЅРёСЏ Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂР°
+в”‚
+в”њв”Ђв”Ђ keyboards/             # РљРЅРѕРїРєРё Рё РјРµРЅСЋ
+в”‚   в”њв”Ђв”Ђ __init__.py
+в”‚   в”њв”Ђв”Ђ reply.py
+в”‚   в””в”Ђв”Ђ inline.py
+в”‚
+в”њв”Ђв”Ђ database/
+в”‚   в”њв”Ђв”Ђ __init__.py
+в”‚   в”њв”Ђв”Ђ connection.py
+в”‚   в””в”Ђв”Ђ requests.py
+в”‚
+в”њв”Ђв”Ђ .env
+в”њв”Ђв”Ђ config.py
+в”њв”Ђв”Ђ main.py
+в””в”Ђв”Ђ requirements.txt
 ```
 
-Комментарии после `#` могут использоваться как описание файлов.
+РљРѕРјРјРµРЅС‚Р°СЂРёРё РїРѕСЃР»Рµ `#` РјРѕРіСѓС‚ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊСЃСЏ РєР°Рє РѕРїРёСЃР°РЅРёРµ С„Р°Р№Р»РѕРІ.
 
 ---
 
-## Пример JSON
+## РџСЂРёРјРµСЂ JSON
 
 ```json
 {
@@ -154,7 +154,7 @@ my_bot_project/
 
 ---
 
-## Пример YAML
+## РџСЂРёРјРµСЂ YAML
 
 ```yaml
 root: my_project
@@ -175,50 +175,50 @@ structure:
 
 ---
 
-## Запуск без установки
+## Р—Р°РїСѓСЃРє Р±РµР· СѓСЃС‚Р°РЅРѕРІРєРё
 
 Linux / macOS:
 
 ```bash
-PYTHONPATH=src python -m project_generator.cli generate examples/telegram_bot.tree --dry-run
+PYTHONPATH=src python -m strtree.cli generate examples/telegram_bot.tree --dry-run
 ```
 
 Windows:
 
 ```bash
 set PYTHONPATH=src
-python -m project_generator.cli generate examples/telegram_bot.tree --dry-run
+python -m strtree.cli generate examples/telegram_bot.tree --dry-run
 ```
 
 ---
 
-## Разработка
+## Р Р°Р·СЂР°Р±РѕС‚РєР°
 
-Установка dev-зависимостей:
+РЈСЃС‚Р°РЅРѕРІРєР° dev-Р·Р°РІРёСЃРёРјРѕСЃС‚РµР№:
 
 ```bash
 pip install -e ".[dev,yaml]"
 ```
 
-Тесты:
+РўРµСЃС‚С‹:
 
 ```bash
 pytest
 ```
 
-Линтер:
+Р›РёРЅС‚РµСЂ:
 
 ```bash
 ruff check src tests
 ```
 
-Сборка пакета:
+РЎР±РѕСЂРєР° РїР°РєРµС‚Р°:
 
 ```bash
 python -m build
 ```
 
-Проверка пакета:
+РџСЂРѕРІРµСЂРєР° РїР°РєРµС‚Р°:
 
 ```bash
 twine check dist/*
@@ -226,83 +226,83 @@ twine check dist/*
 
 ---
 
-## Структура проекта
+## РЎС‚СЂСѓРєС‚СѓСЂР° РїСЂРѕРµРєС‚Р°
 
 ```text
-project-generator/
-│
-├── .github/
-│   ├── dependabot.yml
-│   └── workflows/
-│       ├── ci.yml
-│       └── cd.yml
-│
-├── examples/
-│   ├── telegram_bot.tree
-│   ├── project.json
-│   └── project.yaml
-│
-├── src/
-│   └── project_generator/
-│       ├── __init__.py
-│       ├── cli.py
-│       ├── models.py
-│       ├── security.py
-│       ├── templates.py
-│       ├── actions.py
-│       ├── executor.py
-│       └── parsers/
-│           ├── __init__.py
-│           ├── tree.py
-│           └── dict_parser.py
-│
-├── tests/
-├── README.md
-├── LICENSE
-├── .gitignore
-└── pyproject.toml
+strtree/
+в”‚
+в”њв”Ђв”Ђ .github/
+в”‚   в”њв”Ђв”Ђ dependabot.yml
+в”‚   в””в”Ђв”Ђ workflows/
+в”‚       в”њв”Ђв”Ђ ci.yml
+в”‚       в””в”Ђв”Ђ cd.yml
+в”‚
+в”њв”Ђв”Ђ examples/
+в”‚   в”њв”Ђв”Ђ telegram_bot.tree
+в”‚   в”њв”Ђв”Ђ project.json
+в”‚   в””в”Ђв”Ђ project.yaml
+в”‚
+в”њв”Ђв”Ђ src/
+в”‚   в””в”Ђв”Ђ strtree/
+в”‚       в”њв”Ђв”Ђ __init__.py
+в”‚       в”њв”Ђв”Ђ cli.py
+в”‚       в”њв”Ђв”Ђ models.py
+в”‚       в”њв”Ђв”Ђ security.py
+в”‚       в”њв”Ђв”Ђ templates.py
+в”‚       в”њв”Ђв”Ђ actions.py
+в”‚       в”њв”Ђв”Ђ executor.py
+в”‚       в””в”Ђв”Ђ parsers/
+в”‚           в”њв”Ђв”Ђ __init__.py
+в”‚           в”њв”Ђв”Ђ tree.py
+в”‚           в””в”Ђв”Ђ dict_parser.py
+в”‚
+в”њв”Ђв”Ђ tests/
+в”њв”Ђв”Ђ README.md
+в”њв”Ђв”Ђ LICENSE
+в”њв”Ђв”Ђ .gitignore
+в””в”Ђв”Ђ pyproject.toml
 ```
 
 ---
 
 ## CI/CD
 
-CI запускается на каждый pull request и push в `main`.
+CI Р·Р°РїСѓСЃРєР°РµС‚СЃСЏ РЅР° РєР°Р¶РґС‹Р№ pull request Рё push РІ `main`.
 
-Что делает CI:
+Р§С‚Рѕ РґРµР»Р°РµС‚ CI:
 
-- линтер через Ruff;
-- тесты на Python 3.9–3.12.
+- Р»РёРЅС‚РµСЂ С‡РµСЂРµР· Ruff;
+- С‚РµСЃС‚С‹ РЅР° Python 3.9вЂ“3.12.
 
-CD запускается при теге вида:
+CD Р·Р°РїСѓСЃРєР°РµС‚СЃСЏ РїСЂРё С‚РµРіРµ РІРёРґР°:
 
 ```bash
 v0.1.0
 ```
 
-Что делает CD:
+Р§С‚Рѕ РґРµР»Р°РµС‚ CD:
 
-- тесты перед релизом;
-- сборка пакета;
-- проверка пакета;
+- С‚РµСЃС‚С‹ РїРµСЂРµРґ СЂРµР»РёР·РѕРј;
+- СЃР±РѕСЂРєР° РїР°РєРµС‚Р°;
+- РїСЂРѕРІРµСЂРєР° РїР°РєРµС‚Р°;
 - GitHub Release;
-- опциональная публикация в PyPI.
+- РѕРїС†РёРѕРЅР°Р»СЊРЅР°СЏ РїСѓР±Р»РёРєР°С†РёСЏ РІ PyPI.
 
 ---
 
-## Релиз
+## Р РµР»РёР·
 
-Обнови версию в:
+РћР±РЅРѕРІРё РІРµСЂСЃРёСЋ РІ:
 
 ```text
 pyproject.toml
-src/project_generator/__init__.py
+src/strtree/__init__.py
 ```
 
-Затем:
+Р—Р°С‚РµРј:
 
 ```bash
-git add pyproject.toml src/project_generator/__init__.py
+git add pyproject.toml src/strtree/__init__.py
 git commit -m "Bump version"
 git push
 
@@ -312,15 +312,16 @@ git push origin v0.1.0
 
 ---
 
-## Безопасность
+## Р‘РµР·РѕРїР°СЃРЅРѕСЃС‚СЊ
 
-- файлы создаются только внутри целевой директории;
-- пути вроде `../../etc/passwd` отклоняются;
-- произвольные shell-команды не выполняются;
-- поддерживается только `git init` и только при явном флаге.
+- С„Р°Р№Р»С‹ СЃРѕР·РґР°СЋС‚СЃСЏ С‚РѕР»СЊРєРѕ РІРЅСѓС‚СЂРё С†РµР»РµРІРѕР№ РґРёСЂРµРєС‚РѕСЂРёРё;
+- РїСѓС‚Рё РІСЂРѕРґРµ `../../etc/passwd` РѕС‚РєР»РѕРЅСЏСЋС‚СЃСЏ;
+- РїСЂРѕРёР·РІРѕР»СЊРЅС‹Рµ shell-РєРѕРјР°РЅРґС‹ РЅРµ РІС‹РїРѕР»РЅСЏСЋС‚СЃСЏ;
+- РїРѕРґРґРµСЂР¶РёРІР°РµС‚СЃСЏ С‚РѕР»СЊРєРѕ `git init` Рё С‚РѕР»СЊРєРѕ РїСЂРё СЏРІРЅРѕРј С„Р»Р°РіРµ.
 
 ---
 
 ## License
 
-MIT. Подробнее в файле `LICENSE`.
+MIT. РџРѕРґСЂРѕР±РЅРµРµ РІ С„Р°Р№Р»Рµ `LICENSE`.
+

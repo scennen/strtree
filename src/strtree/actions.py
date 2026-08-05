@@ -1,10 +1,10 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 from pathlib import Path
 
-from project_generator.models import Action, FileSpec, ProjectSpec
-from project_generator.security import safe_join
-from project_generator.templates import default_content
+from strtree.models import Action, FileSpec, ProjectSpec
+from strtree.security import safe_join
+from strtree.templates import default_content
 
 
 def add_default_files(

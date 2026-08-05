@@ -1,8 +1,8 @@
-from pathlib import Path
+﻿from pathlib import Path
 
 import pytest
 
-from project_generator.security import safe_join
+from strtree.security import safe_join
 
 
 def test_safe_join_prevents_traversal(tmp_path):

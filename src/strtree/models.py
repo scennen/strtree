@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -36,3 +36,4 @@ class Action:
     content: str | None = None
     executable: bool = False
     command: list[str] | None = None
+

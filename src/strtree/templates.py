@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 from pathlib import Path
 
@@ -121,3 +121,4 @@ if __name__ == "__main__":
         return f"# {comment}\n"
 
     return ""
+

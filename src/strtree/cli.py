@@ -1,18 +1,18 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 import argparse
 import sys
 from pathlib import Path
 
-from project_generator import __version__
-from project_generator.actions import add_default_files, add_python_init_files, plan_actions
-from project_generator.executor import execute_actions
-from project_generator.parsers import load_spec
+from strtree import __version__
+from strtree.actions import add_default_files, add_python_init_files, plan_actions
+from strtree.executor import execute_actions
+from strtree.parsers import load_spec
 
 
 def main(argv: list[str] | None = None) -> None:
     parser = argparse.ArgumentParser(
-        prog="project-generator",
+        prog="strtree",
         description="Local CLI project generator",
     )
 
